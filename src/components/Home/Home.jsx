@@ -83,13 +83,13 @@ function Home() {
     }
 
     return (
-        <div className='flex min-h-screen w-full flex-col bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.18),_transparent_35%),linear-gradient(180deg,#020617_0%,#0f172a_55%,#111827_100%)]'>
+        <div className='flex min-h-screen w-full flex-col bg-[radial-gradient(circle_at_top,_rgba(251,191,36,0.16),_transparent_35%),linear-gradient(180deg,#020617_0%,#111827_55%,#1c1917_100%)]'>
             <header className='flex items-center justify-between border-b border-white/10 px-4 py-4 backdrop-blur md:px-8'>
                 <div>
-                    <p className='text-xs uppercase tracking-[0.35em] text-cyan-300/80'>Gemini Workspace</p>
+                    <p className='text-xs uppercase tracking-[0.35em] text-amber-300/80'>Gemini Workspace</p>
                     <h2 className='text-xl font-semibold text-white'>Chat Studio</h2>
                 </div>
-                <img src={assets.profile_icon} className='w-10 rounded-full ring-2 ring-white/10' alt='Profile' />
+                <img src={assets.profile_icon} className='w-10 rounded-full ring-2 ring-amber-300/20' alt='Profile' />
             </header>
 
             <main className='flex flex-1 flex-col px-4 py-5 md:px-8'>
@@ -98,11 +98,11 @@ function Home() {
                         {state.messages.length === 0 ? (
                             <div className='flex min-h-[55vh] flex-col items-center justify-center text-center'>
                                 <div className='max-w-2xl space-y-4'>
-                                    <p className='text-sm uppercase tracking-[0.4em] text-cyan-300/80'>Welcome back</p>
-                                    <h1 className='bg-gradient-to-r from-cyan-300 via-sky-200 to-indigo-200 bg-clip-text text-4xl font-semibold text-transparent md:text-6xl'>
+                                    <p className='text-sm uppercase tracking-[0.4em] text-amber-300/80'>Welcome back</p>
+                                    <h1 className='bg-gradient-to-r from-amber-200 via-orange-200 to-rose-200 bg-clip-text text-4xl font-semibold text-transparent md:text-6xl'>
                                         Ask Gemini anything.
                                     </h1>
-                                    <p className='mx-auto max-w-xl text-sm leading-7 text-slate-300 md:text-base'>
+                                    <p className='mx-auto max-w-xl text-sm leading-7 text-stone-300 md:text-base'>
                                         Start a conversation, get structured answers, and read responses in a cleaner chat layout.
                                     </p>
                                 </div>
@@ -112,7 +112,7 @@ function Home() {
                                             key={item}
                                             type='button'
                                             onClick={() => dispatch({ type: 'SET_INPUT', payload: { input: item } })}
-                                            className='rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-slate-200 transition hover:-translate-y-0.5 hover:bg-white/15'
+                                            className='rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm text-stone-200 transition hover:-translate-y-0.5 hover:bg-white/15'
                                         >
                                             {item}
                                         </button>
@@ -123,7 +123,7 @@ function Home() {
                             <div className='space-y-4'>
                                 {state.messages.map((message) => (
                                     <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                                        <div className={`max-w-[92%] rounded-[1.5rem] px-4 py-3 md:max-w-[80%] ${message.role === 'user' ? 'bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20' : 'border border-white/10 bg-slate-900/70 text-slate-100 shadow-lg shadow-black/20'}`}>
+                                        <div className={`max-w-[92%] rounded-[1.5rem] px-4 py-3 md:max-w-[80%] ${message.role === 'user' ? 'bg-amber-300 text-slate-950 shadow-lg shadow-amber-500/20' : 'border border-white/10 bg-stone-900/70 text-slate-100 shadow-lg shadow-black/20'}`}>
                                             <div className='mb-2 text-xs font-medium uppercase tracking-[0.3em] opacity-70'>
                                                 {message.role === 'user' ? 'You' : 'Gemini'}
                                             </div>
@@ -136,11 +136,11 @@ function Home() {
 
                                 {state.loading ? (
                                     <div className='flex justify-start'>
-                                        <div className='inline-flex items-center gap-2 rounded-[1.5rem] border border-white/10 bg-slate-900/70 px-4 py-3 text-slate-200'>
-                                            <span className='h-2 w-2 animate-pulse rounded-full bg-cyan-300'></span>
-                                            <span className='h-2 w-2 animate-pulse rounded-full bg-cyan-300 [animation-delay:150ms]'></span>
-                                            <span className='h-2 w-2 animate-pulse rounded-full bg-cyan-300 [animation-delay:300ms]'></span>
-                                            <span className='ml-1 text-sm text-slate-300'>Gemini is thinking</span>
+                                        <div className='inline-flex items-center gap-2 rounded-[1.5rem] border border-white/10 bg-stone-900/70 px-4 py-3 text-slate-200'>
+                                            <span className='h-2 w-2 animate-pulse rounded-full bg-amber-300'></span>
+                                            <span className='h-2 w-2 animate-pulse rounded-full bg-amber-300 [animation-delay:150ms]'></span>
+                                            <span className='h-2 w-2 animate-pulse rounded-full bg-amber-300 [animation-delay:300ms]'></span>
+                                            <span className='ml-1 text-sm text-stone-300'>Gemini is thinking</span>
                                         </div>
                                     </div>
                                 ) : null}
@@ -159,13 +159,13 @@ function Home() {
                                     onChange={handleChange}
                                     rows='1'
                                     placeholder='Ask Gemini something...'
-                                    className='min-h-[56px] w-full resize-none rounded-2xl bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-slate-400'
+                                    className='min-h-[56px] w-full resize-none rounded-2xl bg-transparent px-4 py-3 text-sm text-white outline-none placeholder:text-stone-400'
                                 />
                             </div>
                             <button
                                 type='submit'
                                 disabled={state.loading || !state.input.trim()}
-                                className='rounded-2xl bg-cyan-400 px-5 py-4 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-50'
+                                className='rounded-2xl bg-amber-300 px-5 py-4 text-sm font-semibold text-slate-950 transition hover:bg-amber-200 disabled:cursor-not-allowed disabled:opacity-50'
                             >
                                 Send
                             </button>
