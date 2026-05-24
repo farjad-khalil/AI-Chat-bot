@@ -18,10 +18,28 @@ function reducer(state, action) {
             input: action.payload.input
          }
       }
-      case 'SET_RESPONSEG':{
+      case 'SET_LOADING':{
          return{
             ...state,
-            responseG:action.payload.response
+            loading: action.payload.loading
+         }
+      }
+      case 'ADD_MESSAGE':{
+         return{
+            ...state,
+            messages: [...state.messages, action.payload.message]
+         }
+      }
+      case 'CLEAR_MESSAGES':{
+         return{
+            ...state,
+            messages: []
+         }
+      }
+      case 'SET_ERROR':{
+         return{
+            ...state,
+            error: action.payload.error
          }
       }
 
@@ -31,7 +49,7 @@ function reducer(state, action) {
 function App() {
    const [state, dispatch] = useReducer(reducer, initialState)
    return (
-      <div className='bg-white-950'>
+      <div className='min-h-screen bg-slate-950 text-slate-100'>
          <Context.Provider value={{ state, dispatch ,run }}>
             <div className='flex '>
                <Sidebar />
@@ -47,5 +65,7 @@ export default App
 const initialState = {
    extended: false,
    input:'',
-   responseG:''
+   loading:false,
+   error:'',
+   messages: []
 }
